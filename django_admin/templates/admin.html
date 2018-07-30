@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>权限管理系统</title>
+</head>
+<body>
+<form action="/checkrole/", method="post">
+    <select name="role_id">
+        {% for foo in roles %}
+            <option value="{{ foo.id }}">{{ foo.role_name }}</option>
+        {% endfor %}
+
+    </select><br/>
+    <button type="submit">查询角色权限</button>
+</form>
+
+
+
+
+
+
+<table border="solid", cellspacing="0px">
+    <tr>
+        <th>{{ role_name }}</th>
+    </tr>
+    {% for foo in auths %}
+        <tr>
+            <th>{{ foo.auth_name }}</th>
+        </tr>
+
+    {% endfor %}
+
+</table>
+</body>
+</html>
